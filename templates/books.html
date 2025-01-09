@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books List</title>
+    <link rel="stylesheet" type="text/css" href="./books.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./books.css') }}"> -->
+
+</head>
+
+<body>
+    <h1>List of Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                {{ book.title }}
+                <!-- Update Form -->
+                <form method="POST" action="./update" style="display:inline;">
+                    <input type="hidden" value="{{ book.title }}" name="oldtitle">
+                    <input type="text" value="{{ book.title }}" name="newtitle">
+                    <input type="submit" value="Update">
+                </form>
+
+                <!-- Delete Form -->
+                <form method="POST" action="./delete" style="display:inline;">
+                    <input type="hidden" value="{{ book.title }}" name="title">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
