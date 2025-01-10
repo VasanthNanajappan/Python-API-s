@@ -50,3 +50,7 @@ print(f"Listening on {HOST}:{PORT}...")
 while True:
     client_socket,client_address=server_socket.accept()
     #This code continuosly wait for incoming connections.
+    request=client_socket.recv(1024).decode()
+    response=handle_request(request)
+    #response line built the incoming request and give us appropriate response
+    client_socket.close()
