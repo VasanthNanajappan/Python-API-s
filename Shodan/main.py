@@ -3,7 +3,7 @@ import time
 import requests
 import re
 
-SHODAN_API_KEY = "FS7vJPBWZSaSvDEH4I4YXjaYTiDU7HCl"
+SHODAN_API_KEY = "Your API KEY"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def request_page_from_shodan(query, page=1):
